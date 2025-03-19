@@ -44,7 +44,7 @@
 	#side-nav ul li { border-bottom:1px solid #eaeaea; padding:0; margin:0;}
 	#side-nav ul li:last-of-type { border-bottom:0 none;}
 	#side-nav ul li ul { border:0 none; padding:0;  margin:0; background:#fdfdfd; display:none;}
-	#side-nav a { display:block; color:#575757; padding:5px 0; text-transform:capitalize; font-size:13px; font-weight:400; letter-spacing:0.2px;background:url("img/arrow_right_black.png") no-repeat scroll right center rgba(0, 0, 0, 0);  }
+	#side-nav a { display:block; color:#575757; padding:5px 0; text-transform:capitalize; font-size:14px; font-weight:400; letter-spacing:0.2px;background:url("img/arrow_right_black.png") no-repeat scroll right center rgba(0, 0, 0, 0);  }
 	/*#side-nav a:after { float:right;  font-family: 'icomoon'; font-size:8px; color:#878787; content: "\e3b0"; speak: none; font-style: normal; font-weight: normal; text-transform: none; line-height: 3; -webkit-font-smoothing: antialiased; }*/
 	#side-nav a:hover{ color:#FF9933;background:url("img/arrow_right_yellow.png") no-repeat scroll right center rgba(0, 0, 0, 0);}
 	#side-nav .active a{color:#FF9933;background:url("img/arrow_right_yellow.png") no-repeat scroll right center rgba(0, 0, 0, 0);}
