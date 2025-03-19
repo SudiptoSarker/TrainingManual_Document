@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Training Manual - Documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/custome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Slab:300,400" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            /* Adjust header layout for smaller screens */
+            #header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #header .col-md-8, #header .col-md-3 {
+                width: 100%;
+                text-align: left;
+                padding: 10px 0;
+            }
+
+            /* Adjust sidebar layout for smaller screens */
+            #sticky-sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            /* Adjust main content layout for smaller screens */
+            .col-md-8 {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            /* Adjust section padding for smaller screens */
+            section {
+                padding: 15px;
+            }
+
+            /* Adjust introduction section padding for smaller screens */
+            #Introduction {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            /* Adjust checklist submenu for smaller screens */
+            .submenu {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            #header-sm {
+                padding: 10px;
+            }
+
+            #header-sm h4 {
+                font-size: 18px;
+            }
+
+            #header-sm h5 {
+                font-size: 14px;
+            }
+
+            #Introduction h1 {
+                font-size: 24px;
+            }
+
+            #Introduction h4 {
+                font-size: 18px;
+            }
+
+            .checklist_header {
+                font-size: 16px;
+            }
+
+            /* Adjust language switcher for smaller screens */
+            #language-select {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <img src="image/loader.gif" alt="Loading..." />
+    </div>
+
+    <!-- START-BODY WRAP CONTENT -->
+    <div id="wrap" class="colorskin-0">
+        <!-- Language Switcher -->
+        <div id="google_translate_element" style="display: none;"></div> <!-- Hidden Google Translate UI -->
+
+        <!-- START-MAIN CONTAINER -->
+        <section class="container">
+            <div class="row">
+                <div id="header-sm">
+                    <div class="col-md-8 col-md-offset-1 desc">
+                        <h4 class="slight">Purpose and Benefits of the Training Manual</h4>
+                        <h5 class="slight"><small> Documented by JABA IT - </small></h5>
+                    </div>
+                </div>
+
+                <!-- START-SIDE MENU -->
+                <div class="col-md-4" id="sticky-sidebar">
+                    <div class="logo">
+                        <img src="image/mti-logo.png" id="img-logo" alt="logo">
+                    </div>
+                    <aside id="side-nav">
+                        <ul id="top-menu">
+                            <li><a href="#Introduction">Introduction</a></li>
+                            <li><a href="#Purpose">Purpose</a></li>
+                            <li><a href="#ExpectedResults">Expected Results</a></li>
+                            <!-- Checklist Menu -->
+                            <li id="Checklist">
+                                <a href="#" id="Checklist_toggle">Checklist</a>
+                                <ul id="Checklist_id" class="submenu" style="display:none;">
+                                    <li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
+                                    <li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+                <!-- END-SIDE MENU -->
+
+                <!-- START-BODY CONTENT -->
+                <div class="col-md-8">
+                    <div id="header" class="row">
+                        <div class="col-md-8 col-md-offset-1 desc" style="text-align: left; margin: 10px 0px 0px 0px;">
+                            <h4 class="slight">Training Manual</h4>
+                        </div>
+                        <div class="col-md-3" style="float: right; padding-top: 5px;">
+                            <div style="text-align: right; padding: 10px;">
+                                <select id="language-select">
+                                    <option value="en">English</option>
+                                    <option value="ja" selected>Japanese</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <section id="Introduction" style="text-align: center; padding-top: 260px; padding-bottom: 260px;">
+                            <h1><strong>Training Manual</strong></h1>
+                            <h4>Prepared by ITA Co.</h4>
+                        </section>
+
+                        <!-- Purpose -->
+                        <section id="Purpose">
+                            <br />
+                            <h3><strong>The training manual is designed to:</strong></h3>
+                        </section>
+
+                        <!-- Expected Results -->
+                        <section id="ExpectedResults">
+                            <br />
+                            <h3><strong>Expected Results (Individual Developer Benefits):</strong></h3>
+                        </section>
+
+                        <!-- Technical Skill Training -->
+                        <section id="TechnicalSkillTraining">
+                            <hr class="vertical-space2">
+                            <h3><strong>Checklist</strong></h3>
+                            <h4><strong>Technical Skill Training</strong></h4>
+                        </section>
+
+                        <!-- Soft Skill Training -->
+                        <section id="SoftSkillTraining">
+                            <h4><strong>Soft Skill Training</strong></h4>
+                        </section>
+                    </div>
+                </div>
+                <!-- END-BODY CONTENT -->
+
+                <div class="white-space"></div>
+            </div>
+        </section>
+        <!-- END-MAIN CONTAINER -->
+
+        <span id="scroll-top"><a class="scrollup"></a></span>
+    </div>
+    <!-- END-BODY WRAP CONTENT -->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="js/doubletaptogo.js"></script>
+    <script type="text/javascript" src="js/cube-custom.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
