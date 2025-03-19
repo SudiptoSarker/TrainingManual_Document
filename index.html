@@ -136,9 +136,10 @@
 				<!-- <div id="google_translate_element"></div> -->
 
 				<!--START-SIDE MENU-->
-				<div class="col-md-4">
+				<div class="col-md-4" id="sticky-sidebar">
+					<div class="logo"> <img src="https://stgbanglalms.mopita.com/images/logo.png"  id="img-logo" alt="logo"> </div>
 					<aside id="side-nav">						
-						<div class="logo"> <img src="https://stgbanglalms.mopita.com/images/logo.png"  id="img-logo" alt="logo"> </div>
+						
 						<ul id="top-menu">
 							
 							<li><a href="#Introduction">Introduction</a></li>
@@ -167,7 +168,6 @@
 							<li id="Checklist">
 								<a href="#" id="Checklist_toggle">Checklist</a>
 								<ul id="Checklist_id" class="submenu" style="display:none;">
-									<li><hr></li> <!-- Horizontal Line -->
 									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
 									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
 								</ul>
@@ -179,8 +179,11 @@
 
 				<!--START-BODY CONTENT-->
 				<div class="col-md-8">
-					<div id="header" class="row">				
-						<div class="col-md-3 logo">
+					<div id="header" class="row">								
+						<div class="col-md-8 col-md-offset-1 desc" style="text-align: left; margin: 10px 0px 0px 0px;">
+							<h4 class="slight">Training Manual</h4>					
+						</div>
+						<div class="col-md-3" style="float: right; padding-top: 5px;">
 							<div style="text-align: right; padding: 10px;">
 								<!-- <label for="language-select">Language: </label> -->
 								<select id="language-select">
@@ -188,9 +191,6 @@
 									<option value="ja" selected>Japanese</option>
 								</select>
 							</div>
-						</div>
-						<div class="col-md-8 col-md-offset-1 desc">
-							<h4 class="slight">Training Manual</h4>					
 						</div>
 					</div>
 					<div class="body-content">
@@ -846,7 +846,7 @@
 	}
 
 	// Wait for Google Translate to Load
-	setTimeout(translateToJapanese, 3000);
+	setTimeout(translateToJapanese, 1000);
 
 	// Manual Language Switcher
 	document.getElementById("language-select").addEventListener("change", function() {

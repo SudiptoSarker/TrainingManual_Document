@@ -9,11 +9,21 @@
     top: 0;
     background-color: #fff; /* Ensure background color so it doesn’t overlap */
     z-index: 1000; /* Ensure it stays above other elements */
-    padding: 10px;
+    /* padding: 10px; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow */
 }
 
-#header, .body-content {
+#header {
+    max-width: 97% !important;
+    margin: 0 auto;
+}
+
+#sticky-sidebar {
+    position: sticky;
+    top: 0;
+}
+
+.body-content {
     max-width: 100% !important;
     margin: 0 auto;
 }
