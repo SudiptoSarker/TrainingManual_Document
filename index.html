@@ -114,8 +114,10 @@
 				<!--START-SIDE MENU-->
 				<div class="col-md-4">
 					<aside id="side-nav">						
-						<div class="logo"> <img src="image/logo.png"  id="img-logo" alt="logo"> </div>
-						<ul id="top-menu">		
+						<div class="logo"> <img src="https://stgbanglalms.mopita.com/images/logo.png"  id="img-logo" alt="logo"> </div>
+						<ul id="top-menu">
+							
+							<li><a href="#Introduction">Introduction</a></li>
 							
 							<!--Purpose-->
 							<li><a href="#Purpose">Purpose</a></li>
@@ -124,8 +126,9 @@
 							<li><a href="#ExpectedResults">Expected Results</a></li>
 
 							<!--Checklist-->
-							<li id="Checklist" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">Checklist
-								<ul id="Checklist_id" style="display:none;">
+							<li id="Checklist" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">
+								<a href="#">Checklist</a>
+								<ul id="Checklist_id" class="item-hide">
 									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
 									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>									
 								</ul>
@@ -142,7 +145,12 @@
 						<div class="col-md-8 col-md-offset-1 desc">
 							<h4 class="slight">Training Manual</h4>					
 						</div>
-					</div>										
+					</div>
+					
+					<Section id="Introduction" style="text-align: center; padding-top: 260px; padding-bottom: 260px;">
+						<h1><strong>Training Manual</strong></h1>
+						<h4>Prepared by ITA Co.</h4>
+					</Section>
 					
 					<!--Purpose-->
 					<section id="Purpose">	
@@ -773,7 +781,8 @@
 </body>
 <script>
 	$( "#Checklist" ).click(function() {
-		$('#Checklist_id').toggle();
+		$('#Checklist_id').toggleClass("item-show");
+		$('#Checklist_id').toggleClass("item-hide");
 	});	
 
 	$( "#installation" ).click(function() {
