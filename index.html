@@ -12,6 +12,18 @@
 	<link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Slab:300,400"  rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="js/jquery.min.js" ></script>
 	<link rel="shortcut icon" href="images/favicon.ico">
+	
+	<!-- Google Translate API -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'ja,en', autoDisplay: false},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
 	<style>
 		/* General Styles */
 		body {
@@ -87,8 +99,11 @@
 		}
 
 		/* Style for the main content */
-		#wrap {
+		/* #wrap {
 			padding: 20px;
+		} */
+		#wrap {
+			display: none; /* Hide content initially */
 		}
 
 		/* Style for the footer */
@@ -98,8 +113,16 @@
 	</style>
 </head>
 <body>
+	<!-- Loader -->
+	<div id="loader">
+		<img src="image/loader.gif" alt="Loading..." />
+	</div>
 	<!-- START-BODY WRAP CONTENT -->	
 	<div id="wrap" class="colorskin-0">	
+	<!-- Language Switcher -->
+	
+
+	<div id="google_translate_element" style="display: none;"></div> <!-- Hidden Google Translate UI -->
 
 		<!-- START-MAIN CONTAINER -->	
 		<section class="container">
@@ -110,6 +133,7 @@
 						<h5 class="slight"><small> Documented by JABA IT - </small></h5>
 					</div>
 				</div>
+				<!-- <div id="google_translate_element"></div> -->
 
 				<!--START-SIDE MENU-->
 				<div class="col-md-4">
@@ -126,13 +150,28 @@
 							<li><a href="#ExpectedResults">Expected Results</a></li>
 
 							<!--Checklist-->
-							<li id="Checklist" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">
+							<!-- <li id="Checklist" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">
 								<a href="#">Checklist</a>
 								<ul id="Checklist_id" class="item-hide">
 									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
 									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>									
 								</ul>
-							</li>							
+							</li>							 -->
+							<!-- <li id="Checklist" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">Checklist								
+								<ul id="Checklist_id" style="display:none;">									
+									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
+									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>									
+								</ul>
+							</li>	 -->
+							<!-- Checklist Menu -->
+							<li id="Checklist">
+								<a href="#" id="Checklist_toggle">Checklist</a>
+								<ul id="Checklist_id" class="submenu" style="display:none;">
+									<li><hr></li> <!-- Horizontal Line -->
+									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
+									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
+								</ul>
+							</li>	
 						</ul>
 					</aside>
 				</div>
@@ -141,628 +180,632 @@
 				<!--START-BODY CONTENT-->
 				<div class="col-md-8">
 					<div id="header" class="row">				
-						<div class="col-md-3 logo"> </div>
+						<div class="col-md-3 logo">
+							<div style="text-align: right; padding: 10px;">
+								<!-- <label for="language-select">Language: </label> -->
+								<select id="language-select">
+									<option value="en">English</option>
+									<option value="ja" selected>Japanese</option>
+								</select>
+							</div>
+						</div>
 						<div class="col-md-8 col-md-offset-1 desc">
 							<h4 class="slight">Training Manual</h4>					
 						</div>
 					</div>
-					
-					<Section id="Introduction" style="text-align: center; padding-top: 260px; padding-bottom: 260px;">
-						<h1><strong>Training Manual</strong></h1>
-						<h4>Prepared by ITA Co.</h4>
-					</Section>
-					
-					<!--Purpose-->
-					<section id="Purpose">	
-						<br />
-						<h3><strong>The training manual is designed to:</strong></h3>
-						<ul>
+					<div class="body-content">
+						<Section id="Introduction" style="text-align: center; padding-top: 260px; padding-bottom: 260px;">
+							<h1><strong>Training Manual</strong></h1>
+							<h4>Prepared by ITA Co.</h4>
+						</Section>
+						
+						<!--Purpose-->
+						<section id="Purpose">	
+							<br />
+							<h3><strong>The training manual is designed to:</strong></h3>
 							<ul>
-								<li>
-									<ol>
-										<li>
-											<strong class="checklist_header">Faster Onboarding</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Help new team members quickly understand the company's development processes, tools, and best practices.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Standardize Knowledge</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Ensure that all developers have a consistent understanding of coding standards, version control, and project management methodologies.
-												</li>
-											</ul>
-										</li>		
-										<li>
-											<strong class="checklist_header">Ensure Code Quality & Maintainability</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Establish best practices for writing clean, efficient, scalable and maintainable code.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Improve Productivity</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Developers become efficient faster, reducing delays in project timelines.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Familiarize with Tools & Technologies</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Introduce the technology stack, development environments, and debugging tools used by the team.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Reduced Dependency on Senior Developers</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Clear documentation reduces the need for constant supervision, allowing senior developers to focus on complex tasks.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Enhance Team Collaboration</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Provide guidelines on teamwork, communication, and documentation practices.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Lower Turnover Rates</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Well-prepared developers feel more confident and engaged, reducing frustration and increasing retention.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Better Project Outcomes:</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Higher efficiency and quality in development lead to better software products and satisfied clients.
-												</li>
-											</ul>
-										</li>							
-									</ol>	
-								</li>
-							</ul>
-						</ul>								 																					
-					</section>
+								<ul>
+									<li>
+										<ol>
+											<li>
+												<strong class="checklist_header">Faster Onboarding</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Help new team members quickly understand the company's development processes, tools, and best practices.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Standardize Knowledge</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Ensure that all developers have a consistent understanding of coding standards, version control, and project management methodologies.
+													</li>
+												</ul>
+											</li>		
+											<li>
+												<strong class="checklist_header">Ensure Code Quality & Maintainability</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Establish best practices for writing clean, efficient, scalable and maintainable code.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Improve Productivity</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Developers become efficient faster, reducing delays in project timelines.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Familiarize with Tools & Technologies</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Introduce the technology stack, development environments, and debugging tools used by the team.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Reduced Dependency on Senior Developers</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Clear documentation reduces the need for constant supervision, allowing senior developers to focus on complex tasks.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Enhance Team Collaboration</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Provide guidelines on teamwork, communication, and documentation practices.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Lower Turnover Rates</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Well-prepared developers feel more confident and engaged, reducing frustration and increasing retention.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Better Project Outcomes:</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Higher efficiency and quality in development lead to better software products and satisfied clients.
+													</li>
+												</ul>
+											</li>							
+										</ol>	
+									</li>
+								</ul>
+							</ul>								 																					
+						</section>
 
-					<!--Purpose-->
-					<section id="ExpectedResults">	
-						<br />
-						<h3><strong> Expected Results (Individual Developer Benefits):</strong></h3>
-						<ul>
+						<!--Purpose-->
+						<section id="ExpectedResults">	
+							<br />
+							<h3><strong> Expected Results (Individual Developer Benefits):</strong></h3>
 							<ul>
+								<ul>
+									<li>
+										<h4><strong>By following this training manual, new developers should be able to:</strong></h4>	
+										<ol>
+											<li>
+												<strong class="checklist_header">Smooth Onboarding</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														New hires quickly understand their role and responsibilities. Understand the company’s development workflow and best practices.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Development Environment</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Set up their development environment and use necessary tools effectively.
+													</li>
+												</ul>
+											</li>		
+											<li>
+												<strong class="checklist_header">Reduced Learning Curve</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Structured guidance helps developers adapt to the technology stack and workflow with ease.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Enhanced Skill Development</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Exposure to best practices and industry standards improves technical expertise. Write clean, maintainable, and well-documented code.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Career Growth</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Learning efficient coding, version control, and teamwork practices enhances long-term career prospects.
+													</li>
+												</ul>
+											</li>	
+											<li>
+												<strong class="checklist_header">Technical Issue handling</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Troubleshoot and debug common issues with minimal supervision.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Increased Confidence</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Clear instructions on tools and processes reduce mistakes and boost self-assurance. Contribute to projects confidently and in alignment with company standards.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Better Work-Life Balance</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Knowing how to approach development tasks effectively minimizes stress and unnecessary overtime.
+													</li>
+												</ul>
+											</li>
+											<li>
+												<strong class="checklist_header">Stronger Team Integration</strong>
+												<ul style="list-style-type: disc;">
+													<li>
+														Understanding communication protocols and collaboration tools fosters better relationships with colleagues. Collaborate efficiently with team members using version control systems like Git.
+													</li>
+												</ul>
+											</li>							
+										</ol>	
+									</li>
+								</ul>
+							</ul>								 																					
+						</section>
+						
+						<!--START-INTRODUCTION-->				
+						<section id="TechnicalSkillTraining">			
+							<hr class="vertical-space2">				
+							<h3><strong>Checklist</strong></h3>
+							<h4><strong>Technical Skill Training</strong></h4>
+							<ol>
 								<li>
-									<h4><strong>By following this training manual, new developers should be able to:</strong></h4>	
-									<ol>
+									<strong>Introduction and Onboarding</strong>																
+									<ul>
 										<li>
-											<strong class="checklist_header">Smooth Onboarding</strong>
+											<strong>
+												<input type="checkbox" id="introductionCheckbox" style="vertical-align: middle;" disabled>
+												<label for="introductionCheckbox" style="vertical-align: middle;" class="checklist_header">Introduction and Onboarding</label>
+											</strong>
 											<ul style="list-style-type: disc;">
-												<li>
-													New hires quickly understand their role and responsibilities. Understand the company’s development workflow and best practices.
-												</li>
+												<li>Company introduction (Vision, Mission, Work culture)</li>
+												<li>Overview of the development team and key roles</li>
+												<li>Introduction to ongoing projects and workflows</li>
+												<li>Code of conduct and professional expectations</li>
 											</ul>
 										</li>
 										<li>
-											<strong class="checklist_header">Development Environment</strong>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
 											<ul style="list-style-type: disc;">
-												<li>
-													Set up their development environment and use necessary tools effectively.
-												</li>
-											</ul>
-										</li>		
-										<li>
-											<strong class="checklist_header">Reduced Learning Curve</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Structured guidance helps developers adapt to the technology stack and workflow with ease.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Enhanced Skill Development</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Exposure to best practices and industry standards improves technical expertise. Write clean, maintainable, and well-documented code.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Career Growth</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Learning efficient coding, version control, and teamwork practices enhances long-term career prospects.
-												</li>
-											</ul>
-										</li>	
-										<li>
-											<strong class="checklist_header">Technical Issue handling</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Troubleshoot and debug common issues with minimal supervision.
-												</li>
+												<li>Understanding of company culture and workflow (assessed via Q&A session)</li>
+												<li>Completion of an introductory session quiz</li>
+												<li>Engagement in team discussions and activities</li>											
 											</ul>
 										</li>
-										<li>
-											<strong class="checklist_header">Increased Confidence</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Clear instructions on tools and processes reduce mistakes and boost self-assurance. Contribute to projects confidently and in alignment with company standards.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Better Work-Life Balance</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Knowing how to approach development tasks effectively minimizes stress and unnecessary overtime.
-												</li>
-											</ul>
-										</li>
-										<li>
-											<strong class="checklist_header">Stronger Team Integration</strong>
-											<ul style="list-style-type: disc;">
-												<li>
-													Understanding communication protocols and collaboration tools fosters better relationships with colleagues. Collaborate efficiently with team members using version control systems like Git.
-												</li>
-											</ul>
-										</li>							
-									</ol>	
+									</ul>
 								</li>
-							</ul>
-						</ul>								 																					
-					</section>
-					
-					<!--START-INTRODUCTION-->				
-					<section id="TechnicalSkillTraining">			
-						<hr class="vertical-space2">				
-						<h3><strong>Checklist</strong></h3>
-						<h4><strong>Technical Skill Training</strong></h4>
-						<ol>
-							<li>
-								<strong>Introduction and Onboarding</strong>																
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="introductionCheckbox" style="vertical-align: middle;" disabled>
-											<label for="introductionCheckbox" style="vertical-align: middle;" class="checklist_header">Introduction and Onboarding</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Company introduction (Vision, Mission, Work culture)</li>
-											<li>Overview of the development team and key roles</li>
-											<li>Introduction to ongoing projects and workflows</li>
-											<li>Code of conduct and professional expectations</li>
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Understanding of company culture and workflow (assessed via Q&A session)</li>
-											<li>Completion of an introductory session quiz</li>
-											<li>Engagement in team discussions and activities</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Development Environment Setup</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="DevelopmentEnvironment" style="vertical-align: middle;" disabled>
-											<label for="DevelopmentEnvironment" style="vertical-align: middle;" class="checklist_header">System and Tools Setup</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Provide a machine according to company availability</li>
-											<li>Install required software (Skype, Azure Teams, IDEs, etc.)</li>
-											<li>Configure development tools (Git, IDE settings)</li>
-											<li>Access to project repositories and documentation</li>
-											<li>Understand the local, staging, and production environments</li>
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Setup completion within 2 working days</li>
-											<li>Successful repository access and initial commit within 1 day</li>
-											<li>Understanding of environments assessed via a walkthrough</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Version Control & Collaboration</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="VersionControl" style="vertical-align: middle;" disabled>
-											<label for="VersionControl" style="vertical-align: middle;" class="checklist_header">Git and Project Management Tools</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Introduction to Git (project cloning, branching, merging, pull requests, etc.)</li>
-											<li>Follow structured commit messages and repository guidelines</li>
-											<li>Understand code review procedures and best practices</li>
-											<li>Use project management tools (Jira, Azure DevOps, etc.)</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Number of successfully merged pull requests per sprint</li>
-											<li>Code review approval rate (% of PRs approved after first review)</li>
-											<li>Proper commit message usage compliance (95% adherence)</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Code Standards & Best Practices</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="CodeStandards" style="vertical-align: middle;" disabled>
-											<label for="CodeStandards" style="vertical-align: middle;" class="checklist_header">Writing Quality Code</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Follow company-defined coding conventions (naming, formatting, commenting)</li>
-											<li>Write clean, maintainable, and reusable code</li>
-											<li>Implement error handling and debugging techniques</li>
-											<li>Use secure coding practices (avoid revealing secrets)</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Code quality</li>
-											<li>Number of security vulnerabilities detected in code reviews</li>
-											<li>Bug-free code rate within first deployment</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Project Workflow & Agile Methodology</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="ProjectWorkflow" style="vertical-align: middle;" disabled>
-											<label for="ProjectWorkflow" style="vertical-align: middle;" class="checklist_header">Understanding Agile & Scrum</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Introduction to Agile methodology (Sprints, Backlogs, Boards, Retrospectives)</li>
-											<li>Daily Scrum participation and structure</li>
-											<li>Task tracking and management on the sprint board</li>
-											<li>Requirement gathering, evaluation, and time estimation</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Attendance in daily standups</li>
-											<li>Task completion rate per sprint </li>
-											<li>Adherence to estimated vs. actual task completion time</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Testing and Quality Assurance</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="TestingQuality" style="vertical-align: middle;" disabled>
-											<label for="TestingQuality" style="vertical-align: middle;" class="checklist_header">Writing and Executing Tests</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Write unit tests for each function</li>
-											<li>Perform development testing after completing a task</li>
-											<li>Practice integration and regression testing</li>
-											<li>Learn and use automated testing tools</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Code coverage percentage</li>
-											<li>Number of bugs reported in testing vs. production</li>
-											<li>Automated test execution success rate</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Security</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="Security" style="vertical-align: middle;" disabled>
-											<label for="Security" style="vertical-align: middle;" class="checklist_header">Secure Development Practices</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Follow data privacy policies</li>
-											<li>Implement secure authentication & authorization (JWT, OAuth)</li>
-											<li>Develop secure APIs</li>
-											<li>Prevent common security threats (SQL Injection, CSRF, XSS)</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Number of security vulnerabilities identified per sprint</li>
-											<li>Authentication success rate without security breaches</li>
-											<li>Compliance with security standards</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Assessment</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="Assessment" style="vertical-align: middle;" disabled>
-											<label for="Assessment" style="vertical-align: middle;" class="checklist_header">Practical Application</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Complete a small coding challenge or bug fix</li>
-											<li>Work on a sample project or contribute to an existing project</li>
-											<li>Participate in a grooming session with senior developers</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Challenge completion success rate</li>
-											<li>Number of code contributions made within the first month</li>
-											<li>Performance evaluation from senior developers</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Team Communication & Collaboration</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="TeamCommunication" style="vertical-align: middle;" disabled>
-											<label for="TeamCommunication" style="vertical-align: middle;" class="checklist_header">Effective Communication Practices</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Write proper technical documentation</li>
-											<li>Report issues and request help effectively</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Response time to messages and issue reporting</li>
-											<li>Clarity and completeness of documentation</li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ol>					
-					</section>					
+								<li>
+									<strong>Development Environment Setup</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="DevelopmentEnvironment" style="vertical-align: middle;" disabled>
+												<label for="DevelopmentEnvironment" style="vertical-align: middle;" class="checklist_header">System and Tools Setup</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Provide a machine according to company availability</li>
+												<li>Install required software (Skype, Azure Teams, IDEs, etc.)</li>
+												<li>Configure development tools (Git, IDE settings)</li>
+												<li>Access to project repositories and documentation</li>
+												<li>Understand the local, staging, and production environments</li>
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Setup completion within 2 working days</li>
+												<li>Successful repository access and initial commit within 1 day</li>
+												<li>Understanding of environments assessed via a walkthrough</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Version Control & Collaboration</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="VersionControl" style="vertical-align: middle;" disabled>
+												<label for="VersionControl" style="vertical-align: middle;" class="checklist_header">Git and Project Management Tools</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Introduction to Git (project cloning, branching, merging, pull requests, etc.)</li>
+												<li>Follow structured commit messages and repository guidelines</li>
+												<li>Understand code review procedures and best practices</li>
+												<li>Use project management tools (Jira, Azure DevOps, etc.)</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Number of successfully merged pull requests per sprint</li>
+												<li>Code review approval rate (% of PRs approved after first review)</li>
+												<li>Proper commit message usage compliance (95% adherence)</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Code Standards & Best Practices</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="CodeStandards" style="vertical-align: middle;" disabled>
+												<label for="CodeStandards" style="vertical-align: middle;" class="checklist_header">Writing Quality Code</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Follow company-defined coding conventions (naming, formatting, commenting)</li>
+												<li>Write clean, maintainable, and reusable code</li>
+												<li>Implement error handling and debugging techniques</li>
+												<li>Use secure coding practices (avoid revealing secrets)</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Code quality</li>
+												<li>Number of security vulnerabilities detected in code reviews</li>
+												<li>Bug-free code rate within first deployment</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Project Workflow & Agile Methodology</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="ProjectWorkflow" style="vertical-align: middle;" disabled>
+												<label for="ProjectWorkflow" style="vertical-align: middle;" class="checklist_header">Understanding Agile & Scrum</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Introduction to Agile methodology (Sprints, Backlogs, Boards, Retrospectives)</li>
+												<li>Daily Scrum participation and structure</li>
+												<li>Task tracking and management on the sprint board</li>
+												<li>Requirement gathering, evaluation, and time estimation</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Attendance in daily standups</li>
+												<li>Task completion rate per sprint </li>
+												<li>Adherence to estimated vs. actual task completion time</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Testing and Quality Assurance</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="TestingQuality" style="vertical-align: middle;" disabled>
+												<label for="TestingQuality" style="vertical-align: middle;" class="checklist_header">Writing and Executing Tests</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Write unit tests for each function</li>
+												<li>Perform development testing after completing a task</li>
+												<li>Practice integration and regression testing</li>
+												<li>Learn and use automated testing tools</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Code coverage percentage</li>
+												<li>Number of bugs reported in testing vs. production</li>
+												<li>Automated test execution success rate</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Security</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="Security" style="vertical-align: middle;" disabled>
+												<label for="Security" style="vertical-align: middle;" class="checklist_header">Secure Development Practices</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Follow data privacy policies</li>
+												<li>Implement secure authentication & authorization (JWT, OAuth)</li>
+												<li>Develop secure APIs</li>
+												<li>Prevent common security threats (SQL Injection, CSRF, XSS)</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Number of security vulnerabilities identified per sprint</li>
+												<li>Authentication success rate without security breaches</li>
+												<li>Compliance with security standards</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Assessment</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="Assessment" style="vertical-align: middle;" disabled>
+												<label for="Assessment" style="vertical-align: middle;" class="checklist_header">Practical Application</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Complete a small coding challenge or bug fix</li>
+												<li>Work on a sample project or contribute to an existing project</li>
+												<li>Participate in a grooming session with senior developers</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Challenge completion success rate</li>
+												<li>Number of code contributions made within the first month</li>
+												<li>Performance evaluation from senior developers</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Team Communication & Collaboration</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="TeamCommunication" style="vertical-align: middle;" disabled>
+												<label for="TeamCommunication" style="vertical-align: middle;" class="checklist_header">Effective Communication Practices</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Write proper technical documentation</li>
+												<li>Report issues and request help effectively</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Response time to messages and issue reporting</li>
+												<li>Clarity and completeness of documentation</li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ol>					
+						</section>					
 
-					<section id="SoftSkillTraining">						          													
-						<h4><strong>Soft Skill Training </strong></h4>		
-						<ol>
-							<li>
-								<strong>Communication</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="Communication" style="vertical-align: middle;" disabled>
-											<label for="Communication" style="vertical-align: middle;" class="checklist_header">Improving Interaction Skills</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Participate actively in daily standups</li>
-											<li>Provide daily task updates at the end of the day</li>											
-											<li>Keep sprint board updated</li>											
-											<li>Practice active listening and requirement understanding</li>											
-											<li>Share risks and plans with teammates</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Daily scrum participation rate</li>
-											<li>Timeliness in updating the sprint board</li>											
-											<li>Peer feedback rating on communication skills</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">Materials</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li><a href="https://docs.google.com/presentation/d/1zIj6WE9ICmEP1YW3c_4yfpvChuzPSSqF/edit#slide=id.p1" target="_blank">HoRenSou</a></li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Development structure</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="Developmentstructure" style="vertical-align: middle;" disabled>
-											<label for="Developmentstructure" style="vertical-align: middle;" class="checklist_header">Efficient Task Handling</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Gather requirements before development</li>
-											<li>Prepare a development plan</li>											
-											<li>Identify risks and execute tasks within estimated time</li>											
-											<li>Conduct development testing before merging</li>																														
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Task completion rate within estimated time</li>
-											<li>Dev testing pass rate before merging</li>											
-											<li>Number of escalated issues due to unclear requirements</li>											
-										</ul>
-									</li>									
-								</ul>
-							</li>
-							<li>
-								<strong>Task Volume Estimation & Time Management</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="TaskVolume" style="vertical-align: middle;" disabled>
-											<label for="TaskVolume" style="vertical-align: middle;" class="checklist_header">Handling Workloads Effectively</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Break down tasks properly before development</li>
-											<li>Estimate time accurately</li>											
-											<li>Prioritize tasks effectively</li>																						
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Accuracy of initial time estimation vs. actual time taken</li>
-											<li>Percentage of tasks delivered before or on deadline</li>											
-											<li>Proper breakdown of tasks into 2H–8H blocks</li>											
-										</ul>
-									</li>									
-								</ul>
-							</li>
-							<li>
-								<strong>Sprint Board & WBS (Work Breakdown Structure)</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="SprintBoard" style="vertical-align: middle;" disabled>
-											<label for="SprintBoard" style="vertical-align: middle;" class="checklist_header">Managing Sprint Board Properly</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Maintain all assigned tasks on the board</li>
-											<li>Write clear task descriptions</li>											
-											<li>Update task statuses in real-time</li>																						
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Sprint board update accuracy</li>											
-											<li>Task description completeness score</li>											
-										</ul>
-									</li>									
-								</ul>
-							</li>
-							<li>
-								<strong>Risk Management & Troubleshooting</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="RiskManagement" style="vertical-align: middle;" disabled>
-											<label for="RiskManagement" style="vertical-align: middle;" class="checklist_header">Handling Issues Proactively</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Identify risks before development (technical barriers, resource availability)</li>
-											<li>Prepare mitigation plans for known risks</li>											
-											<li>Debug issues effectively and document solutions</li>									
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Number of risks identified and mitigated before they cause blockers</li>
-											<li>Resolution time for high-priority bugs</li>											
-											<li>Number of documented solutions for recurring issues</li>											
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">Materials</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li><a href="https://docs.google.com/presentation/d/1zIj6WE9ICmEP1YW3c_4yfpvChuzPSSqF/edit#slide=id.p1" target="_blank">Risks In Software Development Process</a></li>											
-											<li><a href="https://docs.google.com/presentation/d/164UuOvydZK9zI_e0HZsU1OuCrY8PC0Bp78CQdQkc6AA/edit#slide=id.p" target="_blank">How To Analyze The Effect of Risk</a></li>											
-											<li><a href="https://docs.google.com/presentation/d/1qC8k1o6ArJhilL8iPl5sr7am7bC2F_AiLFDFW9SUVRo/edit#slide=id.p" target="_blank">How To Manage Risks</a></li>											
-											<li><a href="https://docs.google.com/document/d/1r7oBdJZp0_XyOCBWEpN2Y70-aRWaS10_joY_d3fWJMA/edit?tab=t.0#heading=h.xs9qypwvag6c" target="_blank">Technical Risk</a></li>											
-											<li><a href="https://docs.google.com/presentation/d/1g0IYbcwJQG3woGVOSOLxZuQL_zjH3IFW/edit#slide=id.p1" target="_blank">How To Solve a Problem</a></li>											
-											<li><a href="https://docs.google.com/presentation/d/1Zgz83unY1bi-7lZ3Wjdm05gk4U6q-JQA_2OvR-cQ7Z4/edit#slide=id.p" target="_blank">How To Prioritize Bugs</a></li>											
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<strong>Leadership & Work Balance</strong>
-								<ul>
-									<li>
-										<strong>
-											<input type="checkbox" id="Leadership" style="vertical-align: middle;" disabled>
-											<label for="Leadership" style="vertical-align: middle;" class="checklist_header">Becoming a Responsible Developer</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Take ownership of projects and tasks</li>
-											<li>Maintain a professional and respectful work environment</li>											
-											<li>Balance work and personal life</li>									
-										</ul>
-									</li>
-									<li>
-										<strong>											
-											<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
-										</strong>
-										<ul style="list-style-type: disc;">
-											<li>Number of leadership initiatives taken (mentoring, knowledge sharing)</li>
-											<li>Peer rating on helpfulness and teamwork</li>											
-											<li>Work-life balance rating in self-assessment surveys</li>											
-										</ul>
-									</li>									
-								</ul>
-							</li>
-						</ol>										
-					</section>
-
-					<hr class="vertical-space2">
-					<section id="Package">
-						<hr class="vertical-space2">						
-					</section>				
+						<section id="SoftSkillTraining">						          													
+							<h4><strong>Soft Skill Training </strong></h4>		
+							<ol>
+								<li>
+									<strong>Communication</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="Communication" style="vertical-align: middle;" disabled>
+												<label for="Communication" style="vertical-align: middle;" class="checklist_header">Improving Interaction Skills</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Participate actively in daily standups</li>
+												<li>Provide daily task updates at the end of the day</li>											
+												<li>Keep sprint board updated</li>											
+												<li>Practice active listening and requirement understanding</li>											
+												<li>Share risks and plans with teammates</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Daily scrum participation rate</li>
+												<li>Timeliness in updating the sprint board</li>											
+												<li>Peer feedback rating on communication skills</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">Materials</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li><a href="https://docs.google.com/presentation/d/1zIj6WE9ICmEP1YW3c_4yfpvChuzPSSqF/edit#slide=id.p1" target="_blank">HoRenSou</a></li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Development structure</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="Developmentstructure" style="vertical-align: middle;" disabled>
+												<label for="Developmentstructure" style="vertical-align: middle;" class="checklist_header">Efficient Task Handling</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Gather requirements before development</li>
+												<li>Prepare a development plan</li>											
+												<li>Identify risks and execute tasks within estimated time</li>											
+												<li>Conduct development testing before merging</li>																														
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Task completion rate within estimated time</li>
+												<li>Dev testing pass rate before merging</li>											
+												<li>Number of escalated issues due to unclear requirements</li>											
+											</ul>
+										</li>									
+									</ul>
+								</li>
+								<li>
+									<strong>Task Volume Estimation & Time Management</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="TaskVolume" style="vertical-align: middle;" disabled>
+												<label for="TaskVolume" style="vertical-align: middle;" class="checklist_header">Handling Workloads Effectively</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Break down tasks properly before development</li>
+												<li>Estimate time accurately</li>											
+												<li>Prioritize tasks effectively</li>																						
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Accuracy of initial time estimation vs. actual time taken</li>
+												<li>Percentage of tasks delivered before or on deadline</li>											
+												<li>Proper breakdown of tasks into 2H–8H blocks</li>											
+											</ul>
+										</li>									
+									</ul>
+								</li>
+								<li>
+									<strong>Sprint Board & WBS (Work Breakdown Structure)</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="SprintBoard" style="vertical-align: middle;" disabled>
+												<label for="SprintBoard" style="vertical-align: middle;" class="checklist_header">Managing Sprint Board Properly</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Maintain all assigned tasks on the board</li>
+												<li>Write clear task descriptions</li>											
+												<li>Update task statuses in real-time</li>																						
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Sprint board update accuracy</li>											
+												<li>Task description completeness score</li>											
+											</ul>
+										</li>									
+									</ul>
+								</li>
+								<li>
+									<strong>Risk Management & Troubleshooting</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="RiskManagement" style="vertical-align: middle;" disabled>
+												<label for="RiskManagement" style="vertical-align: middle;" class="checklist_header">Handling Issues Proactively</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Identify risks before development (technical barriers, resource availability)</li>
+												<li>Prepare mitigation plans for known risks</li>											
+												<li>Debug issues effectively and document solutions</li>									
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Number of risks identified and mitigated before they cause blockers</li>
+												<li>Resolution time for high-priority bugs</li>											
+												<li>Number of documented solutions for recurring issues</li>											
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">Materials</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li><a href="https://docs.google.com/presentation/d/1zIj6WE9ICmEP1YW3c_4yfpvChuzPSSqF/edit#slide=id.p1" target="_blank">Risks In Software Development Process</a></li>											
+												<li><a href="https://docs.google.com/presentation/d/164UuOvydZK9zI_e0HZsU1OuCrY8PC0Bp78CQdQkc6AA/edit#slide=id.p" target="_blank">How To Analyze The Effect of Risk</a></li>											
+												<li><a href="https://docs.google.com/presentation/d/1qC8k1o6ArJhilL8iPl5sr7am7bC2F_AiLFDFW9SUVRo/edit#slide=id.p" target="_blank">How To Manage Risks</a></li>											
+												<li><a href="https://docs.google.com/document/d/1r7oBdJZp0_XyOCBWEpN2Y70-aRWaS10_joY_d3fWJMA/edit?tab=t.0#heading=h.xs9qypwvag6c" target="_blank">Technical Risk</a></li>											
+												<li><a href="https://docs.google.com/presentation/d/1g0IYbcwJQG3woGVOSOLxZuQL_zjH3IFW/edit#slide=id.p1" target="_blank">How To Solve a Problem</a></li>											
+												<li><a href="https://docs.google.com/presentation/d/1Zgz83unY1bi-7lZ3Wjdm05gk4U6q-JQA_2OvR-cQ7Z4/edit#slide=id.p" target="_blank">How To Prioritize Bugs</a></li>											
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<strong>Leadership & Work Balance</strong>
+									<ul>
+										<li>
+											<strong>
+												<input type="checkbox" id="Leadership" style="vertical-align: middle;" disabled>
+												<label for="Leadership" style="vertical-align: middle;" class="checklist_header">Becoming a Responsible Developer</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Take ownership of projects and tasks</li>
+												<li>Maintain a professional and respectful work environment</li>											
+												<li>Balance work and personal life</li>									
+											</ul>
+										</li>
+										<li>
+											<strong>											
+												<label style="vertical-align: middle;" class="checklist_header">KPIs</label>
+											</strong>
+											<ul style="list-style-type: disc;">
+												<li>Number of leadership initiatives taken (mentoring, knowledge sharing)</li>
+												<li>Peer rating on helpfulness and teamwork</li>											
+												<li>Work-life balance rating in self-assessment surveys</li>											
+											</ul>
+										</li>									
+									</ul>
+								</li>
+							</ol>										
+						</section>
+					</div>	
 				</div>
 				<!--END-BODY CONTENT-->
 
@@ -780,20 +823,56 @@
 	<script type="text/javascript" src="js/cube-custom.js" ></script>
 </body>
 <script>
-	$( "#Checklist" ).click(function() {
-		$('#Checklist_id').toggleClass("item-show");
-		$('#Checklist_id').toggleClass("item-hide");
-	});	
+	function showLoader() {
+		document.getElementById('loader').style.display = 'block'; // Show loader
+		document.getElementById('wrap').style.display = 'none'; // Hide content
+	}
 
-	$( "#installation" ).click(function() {
-		$('#installation_id').toggle();
-	});	
-	$( "#DBDesign" ).click(function() {
-		$('#DBDesign_id').toggle();
-	});	
-	$( "#enhancement_plan" ).click(function() {
-		$('#enhancement_plan_id').toggle();
-	});	
-	
+	// Function to hide the loader and show the content
+	function hideLoader() {
+		document.getElementById('loader').style.display = 'none'; // Hide loader
+		document.getElementById('wrap').style.display = 'block'; // Show content
+	}
+	showLoader();
+
+	// Function to Auto-Translate to Japanese
+	function translateToJapanese() {		
+		var select = document.querySelector(".goog-te-combo");
+		if (select) {
+			select.value = "ja";  // Set Japanese as the default translation
+			select.dispatchEvent(new Event("change"));
+		}
+		hideLoader();
+	}
+
+	// Wait for Google Translate to Load
+	setTimeout(translateToJapanese, 3000);
+
+	// Manual Language Switcher
+	document.getElementById("language-select").addEventListener("change", function() {
+		// showLoader(); // Show loader before starting translation
+		var selectedLang = this.value;
+		var select = document.querySelector(".goog-te-combo");
+		if (select) {
+			select.value = selectedLang;
+			select.dispatchEvent(new Event("change"));
+		}
+	});
+
+	// Listen for the translation to complete
+	document.addEventListener('DOMContentLoaded', function() {
+		var translateElement = document.querySelector('.goog-te-combo');
+		if (translateElement) {
+			translateElement.addEventListener('change', function() {
+				hideLoader(); // Hide loader after translation is complete
+			});
+		}
+	});
+
+	// Toggle Checklist Submenu
+	$("#Checklist_toggle").click(function (e) {
+		e.preventDefault();
+		$("#Checklist_id").slideToggle();
+	});
 </script>
 </html>
