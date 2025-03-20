@@ -166,12 +166,21 @@
 							</li>	 -->
 							<!-- Checklist Menu -->
 							<li id="Checklist">
-								<a href="#" id="Checklist_toggle">Checklist</a>
+								<a href="" id="Checklist_toggle">Checklist</a>
 								<ul id="Checklist_id" class="submenu" style="display:none;">
 									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
 									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
 								</ul>
 							</li>	
+
+							<!-- Study Materials Menu -->
+							<li id="material">
+								<a href="" id="material-toggle">Study Materials</a>
+								<ul id="material-id" class="submenu" style="display:none;">
+									<li><a href="#DevSkillDevelopment">Dev Skill Development</a></li>
+									<li><a href="#PMSkillDevelopment">PM Skill Development</a></li>
+								</ul>
+							</li>
 						</ul>
 					</aside>
 				</div>
@@ -873,6 +882,12 @@
 	$("#Checklist_toggle").click(function (e) {
 		e.preventDefault();
 		$("#Checklist_id").slideToggle();
+	});
+
+	// Toggle Study Material Submenu
+	$("#material-toggle").click(function (e) {
+		e.preventDefault();
+		$("#material-id").slideToggle();
 	});
 </script>
 </html>

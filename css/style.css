@@ -46,7 +46,7 @@
 	#side-nav a:hover{ color:#FF9933;background:url("img/arrow_right_yellow.png") no-repeat scroll right center rgba(0, 0, 0, 0);}
 	#side-nav .active a{color:#FF9933;background:url("img/arrow_right_yellow.png") no-repeat scroll right center rgba(0, 0, 0, 0);}
 	
-	#side-nav ul li > ul { display:block;}
+	#side-nav ul li > ul { display:block; padding-left: 20px;}
 	li#client_click { margin-top: 6px!important;}
     li#employee_click { margin-top: 6px!important;}
     li#admin {margin-top: 6px!important;}
