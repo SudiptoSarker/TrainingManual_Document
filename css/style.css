@@ -86,6 +86,12 @@
 	.sticky { color: #555; }
 	.gallery-caption { display: inline; }
 	.bypostauthor { font-size: 13px; }
+
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 2px;
+	  }
 	
 	
 	/* Distance (Vertical Spaces) */
