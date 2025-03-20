@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Responsive Design</title>
+    <title>Simple Responsive Design with Left-Side Menu</title>
     <style>
         /* General Styles */
         body {
@@ -42,98 +42,119 @@
             margin-left: auto;
         }
 
-        /* Navbar Styles */
-        nav {
+        /* Left-Side Menu Styles */
+        .sidebar {
+            width: 250px; /* Fixed width for the side menu */
             background-color: #333;
             color: #fff;
-            padding: 10px 20px;
+            height: calc(100vh - 60px); /* Full height minus header height */
+            position: fixed; /* Fixed position */
+            top: 60px; /* Below the header */
+            left: 0;
+            overflow-y: auto; /* Scrollable if content overflows */
+            padding: 10px 0;
         }
 
-        nav ul {
+        .sidebar ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
-            flex-direction: column;
         }
 
-        nav ul li {
+        .sidebar ul li {
             position: relative;
         }
 
-        nav ul li a {
+        .sidebar ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             display: block;
         }
 
-        nav ul li a:hover {
+        .sidebar ul li a:hover {
             background-color: #555;
         }
 
+        /* Dropdown Icon for Submenu */
+        .sidebar ul li.has-submenu > a::after {
+            content: "▾"; /* Unicode caret symbol */
+            float: right;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
         /* Submenu Styles */
-        nav ul li ul {
+        .sidebar ul li ul {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
             background-color: #444;
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        nav ul li:hover > ul {
+        .sidebar ul li:hover > ul {
             display: block;
         }
 
-        nav ul li ul li {
-            width: 200px;
+        .sidebar ul li ul li {
+            width: 100%;
+        }
+
+        .sidebar ul li ul li a {
+            padding-left: 30px; /* Indent submenu items */
+        }
+
+        /* Main Content Styles */
+        main {
+            margin-left: 250px; /* Offset for the side menu */
+            padding: 20px;
+            margin-top: 60px; /* Offset for the header */
         }
 
         /* Responsive Styles */
-        @media (min-width: 768px) {
-            nav ul {
-                flex-direction: row;
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%; /* Full width on mobile */
+                height: auto;
+                position: relative;
+                top: 0;
             }
 
-            nav ul li {
-                flex: 1;
+            main {
+                margin-left: 0; /* Remove offset on mobile */
+                margin-top: 20px; /* Adjust margin for mobile */
             }
 
-            nav ul li ul {
-                top: 100%;
-                left: 0;
-            }
-        }
-
-        /* Toggle Button for Mobile */
-        .menu-toggle {
-            display: none;
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 767px) {
+            /* Toggle Button for Mobile */
             .menu-toggle {
+                display: block;
+                background: #333;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                width: 100%;
+                text-align: left;
+                font-size: 16px;
+            }
+
+            .sidebar ul {
+                display: none; /* Hide menu by default on mobile */
+            }
+
+            .sidebar ul.active {
                 display: block;
             }
 
-            nav ul {
-                display: none;
-                flex-direction: column;
+            /* Adjust submenu for mobile */
+            .sidebar ul li ul {
+                position: static;
+                background-color: #555;
             }
 
-            nav ul.active {
-                display: flex;
+            .sidebar ul li.has-submenu > a::after {
+                content: "▸"; /* Change caret for mobile */
             }
         }
     </style>
@@ -142,8 +163,8 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="https://via.placeholder.com/40" alt="Logo">
-            <div class="header-title">My Website</div>
+            <img src="image/mti-logo.png" alt="Logo">
+            <div class="header-title">Training Manual</div>
         </div>
         <div class="language-dropdown">
             <select id="language-select">
@@ -153,13 +174,13 @@
         </div>
     </header>
 
-    <!-- Navbar -->
-    <nav>
-        <button class="menu-toggle" id="menu-toggle">☰</button>
+    <!-- Left-Side Menu -->
+    <nav class="sidebar">
+        <button class="menu-toggle" id="menu-toggle">☰ Menu</button>
         <ul id="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li>
+            <li class="has-submenu">
                 <a href="#services">Services</a>
                 <ul>
                     <li><a href="#web-design">Web Design</a></li>
@@ -174,7 +195,19 @@
     <main>
         <section id="home">
             <h1>Welcome to My Website</h1>
-            <p>This is a simple responsive design example.</p>
+            <p>This is a simple responsive design example with a left-side menu.</p>
+        </section>
+        <section id="about">
+            <h1>About Us</h1>
+            <p>Learn more about our company and mission.</p>
+        </section>
+        <section id="services">
+            <h1>Our Services</h1>
+            <p>Explore the services we offer.</p>
+        </section>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us for more information.</p>
         </section>
     </main>
 
