@@ -1,0 +1,125 @@
+.checklist_header{
+    font-size: 18px; /* Slightly larger for headers */
+    font-weight: bold;
+    color: #2c3e50;
+    display: inline !important;   
+}
+#header {
+    position: sticky;
+    top: 0;
+    background-color: #fff; 
+    z-index: 1000; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 97% !important;
+    margin: 0 auto;
+}
+#sticky-sidebar {
+    position: sticky;
+    top: 0;
+}
+
+.body-content {
+    max-width: 100% !important;
+    margin: 0 auto;
+}
+/* navbar css */
+#top-menu {
+    list-style: none;
+    padding: 0;
+}
+
+#top-menu li {
+    position: relative;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+#top-menu li a {
+    color: #3498db;
+    text-decoration: none;
+    display: block;
+}
+
+#top-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Submenu styles */
+.submenu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.submenu li {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.submenu li hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 5px 0;
+}
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+/* Increase font size for normal list items */
+ul li, ol li,a {
+    font-size: 14px; 
+    margin-bottom: 10px;
+}
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+#header-sm {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#header-sm h4, #header-sm h5 {
+    margin: 0;
+}
+#wrap {
+    display: none; 
+}
+
+/* Style for the footer */
+.white-space {
+    height: 50px;
+}

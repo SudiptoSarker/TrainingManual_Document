@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Training Manual - Documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/custome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Slab:300,400" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- Google Translate API -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', includedLanguages: 'ja,en', autoDisplay: false },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Increase font size for normal list items */
+        ul li, ol li, a {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for checklist headers */
+        .checklist_header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Add some padding and margin to sections */
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for links */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for checkboxes */
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* Style for headers */
+        #header-sm, #header {
+            background-color: #ededed; /* White background */
+            color: #333; /* Dark text color */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-sm h4, #header-sm h5, #header h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        /* Style for the main content */
+        #wrap {
+            display: none;
+        }
+
+        /* Style for the footer */
+        .white-space {
+            height: 50px;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .menu-toggle:hover {
+            background: #f0f0f0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .col-md-4, .col-md-8 {
+                width: 100%;
+                float: none;
+            }
+
+            #header-sm, #header {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #header-sm h4, #header h4 {
+                font-size: 18px;
+            }
+
+            #header-sm h5 {
+                font-size: 14px;
+            }
+
+            #side-nav {
+                padding: 10px;
+            }
+
+            #side-nav ul li a {
+                font-size: 12px;
+            }
+
+            .body-content {
+                padding: 10px;
+            }
+
+            .body-content h1 {
+                font-size: 24px;
+            }
+
+            .body-content h3 {
+                font-size: 18px;
+            }
+
+            .body-content p {
+                font-size: 14px;
+            }
+
+            .logo img {
+                width: 100px;
+                height: auto;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            #side-nav {
+                display: none;
+            }
+
+            #side-nav.active {
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            #header-sm {
+                display: flex;
+            }
+
+            #header {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #header-sm h4, #header h4 {
+                font-size: 16px;
+            }
+
+            #header-sm h5 {
+                font-size: 12px;
+            }
+
+            .body-content h1 {
+                font-size: 20px;
+            }
+
+            .body-content h3 {
+                font-size: 16px;
+            }
+
+            .body-content p {
+                font-size: 12px;
+            }
+
+            section {
+                padding-top: 100px !important;
+                padding-bottom: 100px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <img src="image/loader.gif" alt="Loading..." />
+    </div>
+    <!-- START-BODY WRAP CONTENT -->
+    <div id="wrap" class="colorskin-0">
+        <!-- Language Switcher -->
+        <div id="google_translate_element" style="display: none;"></div>
+
+        <!-- START-MAIN CONTAINER -->
+        <section class="container">
+            <div class="row">
+                <!-- Header 1 -->
+                <div id="header-sm">
+                    <div class="logo">
+                        <img src="image/mti-logo.png" id="img-logo" alt="logo">
+                    </div>
+                    <div class="col-md-8 col-md-offset-1 desc" style="text-align: left; margin: 10px 0px 0px 0px;">
+                        <h4 class="slight">Training Manual</h4>
+                    </div>
+                    <div class="col-md-3" style="float: right; padding-top: 5px;">
+                        <div style="text-align: right; padding: 10px;">
+                            <select id="language-select">
+                                <option value="en">English</option>
+                                <option value="ja" selected>Japanese</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>               
+
+                <!--START-SIDE MENU-->
+                <div class="col-md-4" id="sticky-sidebar">
+                    <button id="menu-toggle" class="menu-toggle">☰ Menu</button>
+                    <aside id="side-nav">
+                        <ul id="top-menu">
+                            <li><a href="#Home">Home</a></li>
+                            <li><a href="#Introduction">Introduction</a></li>
+                            <li><a href="#Purpose">Purpose</a></li>
+                            <li><a href="#ExpectedResults">Expected Results</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <!--END-SIDE MENU-->
+
+                <!--START-BODY CONTENT-->
+                <div class="col-md-8">
+                    <div class="body-content">
+                        <Section id="Home" style="text-align: center; padding-top: 260px; padding-bottom: 260px;">
+                            <h1><strong>Training Manual</strong></h1>
+                            <h4>Prepared by ITA Co.</h4>
+                        </Section>
+                        <section id="SoftSkillTraining">
+                            <h4><strong>Soft Skill Training </strong></h4>
+                        </section>
+                    </div>
+                </div>
+                <!--END-BODY CONTENT-->
+
+                <div class="white-space"></div>
+            </div>
+        </section>
+        <!-- END-MAIN CONTAINER -->
+
+        <span id="scroll-top"><a class="scrollup"></a></span>
+    </div>
+    <!-- END-BODY WRAP CONTENT -->
+
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="js/doubletaptogo.js"></script>
+    <script type="text/javascript" src="js/cube-custom.js"></script>
+    <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('wrap').style.display = 'none';
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('wrap').style.display = 'block';
+        }
+        showLoader();
+
+        function translateToJapanese() {
+            var select = document.querySelector(".goog-te-combo");
+            if (select) {
+                select.value = "ja";
+                select.dispatchEvent(new Event("change"));
+            }
+            hideLoader();
+        }
+
+        setTimeout(translateToJapanese, 1000);
+
+        document.getElementById("language-select").addEventListener("change", function () {
+            var selectedLang = this.value;
+            var select = document.querySelector(".goog-te-combo");
+            if (select) {
+                select.value = selectedLang;
+                select.dispatchEvent(new Event("change"));
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var translateElement = document.querySelector('.goog-te-combo');
+            if (translateElement) {
+                translateElement.addEventListener('change', function () {
+                    hideLoader();
+                });
+            }
+        });
+
+        // Toggle side menu on mobile
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            var sideNav = document.getElementById("side-nav");
+            sideNav.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

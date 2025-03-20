@@ -155,14 +155,20 @@
 							<li><a href="#ExpectedResults">Expected Results</a></li>
 							
 							<!-- Checklist Menu -->
+							<!-- <li id="Checklist">
+								<a href="" id="Checklist_toggle" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">Checklist</a>
+								<ul id="Checklist_id" class="submenu" style="display:none;">
+									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
+									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
+								</ul>
+							</li>	 -->
 							<li id="Checklist">
 								<a href="" id="Checklist_toggle" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">Checklist</a>
 								<ul id="Checklist_id" class="submenu" style="display:none;">
 									<li><a href="#TechnicalSkillTraining">Technical Skill Training</a></li>
 									<li><a href="#SoftSkillTraining">Soft Skill Training</a></li>
 								</ul>
-							</li>	
-
+							</li>
 							<!-- Study Materials Menu -->
 							<li id="material">
 								<a href="" id="material-toggle" style="background: url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0); padding-bottom: 5px;">Study Materials</a>
@@ -885,10 +891,39 @@
 	});
 
 	// Toggle Checklist Submenu
-	$("#Checklist_toggle").click(function (e) {
-		e.preventDefault();
-		$("#Checklist_id").slideToggle();
-	});
+	// $("#Checklist_toggle").click(function (e) {
+	// 	e.preventDefault();
+	// 	$("#Checklist_id").slideToggle();
+	// });
+	// Toggle Checklist Submenu
+	// Toggle Checklist Submenu
+// Toggle Checklist Submenu
+// $("#Checklist_toggle").click(function (e) {
+//     e.preventDefault();
+//     $("#Checklist_id").slideToggle();
+
+//     // Toggle icon visibility
+//     if ($("#Checklist_id").is(":visible")) {
+//         $("#Checklist_toggle").css("background", "none"); // Hide icon when expanded
+//     } else {
+//         $("#Checklist_toggle").css("background", "url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0)"); // Show icon when collapsed
+//     }
+// });
+// Toggle Checklist Submenu and Icon
+$("#Checklist_toggle").click(function (e) {
+        e.preventDefault();
+        $("#Checklist_id").slideToggle(function() {
+            // Check if the submenu is visible
+            if ($("#Checklist_id").is(":visible")) {
+                // Hide the icon when submenu is visible
+                $("#Checklist_toggle").css("background", "none");
+            } else {
+                // Show the icon when submenu is hidden
+                $("#Checklist_toggle").css("background", "url(css/img/back-to-buttom.png) no-repeat scroll right center rgba(0, 0, 0, 0)");
+            }
+        });
+    });
+
 
 	// Toggle Study Material Submenu
 	$("#material-toggle").click(function (e) {
