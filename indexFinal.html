@@ -31,28 +31,25 @@
     <div class="flex">
         <!-- Sidebar -->
         <nav id="sidebar" class="bg-white shadow-md w-64 h-screen fixed top-16 left-0 p-4 transform -translate-x-full md:translate-x-0 transition-transform z-40">
-            <ul class="mt-20 md:mt-16 space-y-2"> <!-- Added spacing between menu items -->
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Home</li>
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Introduction</li>
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Purpose</li>
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Expected Results</li>
-        
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b relative">
-                    <div class="flex justify-between items-center" onclick="toggleMenu('submenu1', this)">
+            <ul class="mt-20 md:mt-16"> <!-- Adjusted for Header Height -->
+                <li class="p-2 hover:bg-gray-200 cursor-pointer" id="#test">Home</li>
+                <li class="p-2 hover:bg-gray-200 cursor-pointer" id="#test2">Introduction</li>
+                <li class="p-2 hover:bg-gray-200 cursor-pointer">Purpose</li>
+                <li class="p-2 hover:bg-gray-200 cursor-pointer">Expected Results</li>
+
+                <li class="p-2 hover:bg-gray-200 cursor-pointer relative">
+                    <div class="flex justify-between items-center" onclick="toggleMenu('submenu1')">
                         <span>Checklist</span>
-                        <span class="arrow transition-transform duration-300">▼</span> <!-- Default Down Arrow -->
+                        <span class="cursor-pointer">▶</span>
                     </div>
                     <ul id="submenu1" class="hidden bg-gray-100 p-2 ml-4">
                         <li class="p-2 hover:bg-gray-300 cursor-pointer">Technical Skill Training</li>
                         <li class="p-2 hover:bg-gray-300 cursor-pointer">Soft Skill Training</li>
                     </ul>
                 </li>
-        
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Study Materials</li>
-                <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">Conclusion</li>
+                <li class="p-2 hover:bg-gray-200 cursor-pointer">Conclusion</li>
             </ul>
         </nav>
-        
         
         <!-- Main Content -->
         <main class="p-6 mt-24 md:mt-16 w-full md:ml-64"> <!-- Adjusted margin for header height -->
@@ -62,18 +59,8 @@
     </div>
     
     <script>
-        function toggleMenu(id, element) {
-            let submenu = document.getElementById(id);
-            let arrow = element.querySelector('.arrow');
-
-            submenu.classList.toggle('hidden');
-
-            // Toggle arrow direction
-            if (submenu.classList.contains('hidden')) {
-                arrow.innerHTML = '˃'; // Right Arrow (collapsed)
-            } else {
-                arrow.innerHTML = '˄'; // Up Arrow (expanded)
-            }
+        function toggleMenu(id) {
+            document.getElementById(id).classList.toggle('hidden');
         }
     
         function toggleSidebar() {

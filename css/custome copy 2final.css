@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Sticky Header */
+#sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo and Title */
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.header-title {
+    font-size: 20px;
+}
+
+/* Language Dropdown */
+.language-dropdown select {
+    padding: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 64px; /* Adjust to match header height */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 64px); /* Prevent overlapping header */
+    background: #444;
+    color: white;
+    overflow-y: auto;
+    padding-top: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 40; /* Lower than header */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    padding: 10px;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.sidebar ul li a:hover {
+    background: #555;
+}
+.has-submenu ul {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+}
+.has-submenu a:hover + ul {
+    display: block;
+}
+
+/* Menu Toggle (For Mobile) */
+.menu-toggle {
+    display: none;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+/* Main Content */
+main {
+    margin-left: 250px;
+    padding: 80px 20px;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        z-index: 1000;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    main {
+        margin-left: 0;
+        padding-top: 80px;
+    }
+}
